@@ -6,18 +6,18 @@ export type Itinerary = {
 
 };
 
-type UserPreferences = {
+export type UserPreferences = {
     diningOptions: DiningOptions;
     attractionOptions: AttractionOptions;
 };
 
-type DiningOptions = {
+export type DiningOptions = {
     type: string;
     cuisine: string;
     priceRange: string;
 };
 
-type AttractionOptions = {
+export type AttractionOptions = {
     type: string[];
 }
 

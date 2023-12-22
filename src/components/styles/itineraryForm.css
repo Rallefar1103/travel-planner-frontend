@@ -4,6 +4,14 @@
     font-family: 'Lato', sans-serif;
 }
 
+hr {
+    background-color: black;
+    margin-bottom: 25px;
+    margin-right: 25px;
+    height: 1px;
+}
+
+
 #itineraryForm {
     flex-direction: column;
     align-items: center;
@@ -12,18 +20,109 @@
     background-color: white;
     border-radius: 20px;
     text-align: left;
-
+    padding: 4rem;
+    
 }
 
-.formTitle {
-    padding-left: 25px;
-    padding-top: 25px;
-}
 
 .formDescription {
     font-size: 25;
     color: black;
-    width: 65vw;
-    padding-left: 25px;
-    padding-bottom: 25px;
+    width: 70vw;
+    padding-bottom: 0.75rem;
+}
+
+/* Labels */
+
+
+.labelForDestination {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input[name="destination"] {
+    width: 30vw;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+
+
+.labelForDuration {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input[name="duration"] {
+    width: 30vw;
+    padding: 0.5rem;
+    margin-bottom: 1em;
+}
+
+
+.labelForBudget {
+    display: block;
+    margin-bottom: 0.5rem
+}
+
+input[name="budget"] {
+    width: 30vw;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Dining Options */
+.diningOptions {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.diningOptions > div {
+    margin-right: 2rem; 
+    width: 100%; 
+  }
+  
+
+.diningOptions label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.diningOptions select {
+    width: 100%; 
+    padding: 0.5rem; 
+    margin-bottom: 1rem;
+  }
+
+.boldDiningOptions {
+    font-weight: 800;
+}
+
+/* Attraction Options */
+.attractionsOptions {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.attractionsOptions > div {
+    margin-right: 2rem; 
+    width: 100%; 
+  }
+  
+
+.attractionsOptions label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.attractionsOptions select {
+    width: 100%; 
+    padding: 0.5rem; 
+    margin-bottom: 1rem;
+  }
+
+.boldAttractionsOptions {
+    font-weight: 800;
 }
