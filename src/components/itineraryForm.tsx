@@ -1,45 +1,127 @@
 import React, { useState } from "react";
+import { gql, useMutation } from "@apollo/client";
 import "./styles/itineraryForm.css";
-import {
-  AttractionOptions,
-  DiningOptions,
-  Itinerary,
-  UserPreferences,
-} from "../models/itinerary";
 
-function handleSubmit() {}
+import { UserPreferences } from "../models/itinerary";
 
 const ItineraryForm = () => {
-  const diningOptions: DiningOptions = {
-    cuisine: "",
-    priceRange: "",
-    type: "",
-  };
-
-  const attractionOptions: AttractionOptions = {
-    type: [""],
-    priceRange: "",
-  };
-
-  const userPref: UserPreferences = {
-    diningOptions: diningOptions,
-    attractionOptions: attractionOptions,
-  };
-
-  const [formState, setFormState] = useState<Itinerary>({
+  const [formState, setFormState] = useState({
+    title: "",
     destination: "",
-    budget: "0",
-    duration: "0",
-    UserPreferences: userPref,
+    duration: "",
+    budget: "",
+    userPreferences: {
+      diningOptions: {
+        type: "",
+        cuisine: "",
+        priceRange: "",
+      },
+      attractionOptions: {
+        type: [""],
+        priceRange: "",
+      },
+    },
   });
 
+  const CREATE_ITINERARY = gql`
+    mutation CreateItinerary($itineraryInput: ItineraryInput!) {
+      createItinerary(itineraryInput: $itineraryInput) {
+        id
+        title
+        destination
+        duration
+        budget
+        userPreferences {
+          diningOptions {
+            type
+            cuisine
+            priceRange
+          }
+          attractionOptions {
+            type
+            priceRange
+          }
+        }
+        recommendedItineraryDescription
+      }
+    }
+  `;
+
+  const [createItinerary, { loading, error }] = useMutation(CREATE_ITINERARY);
+
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    setFormState({
-      ...formState,
-      [e.target.name]: e.target.value,
+    const { name, value } = e.target;
+    const nameParts = name.split(".");
+
+    setFormState((prevState) => {
+      if (nameParts.length === 3 && nameParts[0] === "userPreferences") {
+        // Ensure that the property names are valid keys
+        if (nameParts[1] in prevState.userPreferences) {
+          const preferenceKey = nameParts[1] as keyof UserPreferences;
+          const optionKey = nameParts[2];
+
+          return {
+            ...prevState,
+            userPreferences: {
+              ...prevState.userPreferences,
+              [preferenceKey]: {
+                ...prevState.userPreferences[preferenceKey],
+                [optionKey]: value,
+              },
+            },
+          };
+        }
+      }
+
+      // Handle other fields outside userPreferences
+      return {
+        ...prevState,
+        [name]: value,
+      };
     });
+  };
+
+  const handleSubmit = async (e: any) => {
+    console.log("Hitting submit!");
+    e.preventDefault();
+
+    const currentYear = new Date().getFullYear();
+    const title = `${formState.destination} ${currentYear}`;
+
+    const updatedFormState = {
+      ...formState,
+      title: title,
+    };
+
+    try {
+      console.log("Submitting with form state", updatedFormState);
+      // const { data } = await createItinerary({
+      //   variables: { itineraryInput: updatedFormState },
+      // });
+      // console.log("Itinerary created:", data);
+
+      setFormState({
+        title: "",
+        destination: "",
+        duration: "",
+        budget: "",
+        userPreferences: {
+          diningOptions: {
+            type: "",
+            cuisine: "",
+            priceRange: "",
+          },
+          attractionOptions: {
+            type: [],
+            priceRange: "",
+          },
+        },
+      });
+    } catch (e) {
+      console.error("Error creating itinerary:", e);
+    }
   };
 
   return (
@@ -55,7 +137,7 @@ const ItineraryForm = () => {
       <form className="form" onSubmit={handleSubmit}>
         <div className="destinationField">
           <label className="labelForDestination" htmlFor="destination">
-            🌎 Destination
+            🌎 Destination (city)
           </label>
           <input
             type="text"
@@ -73,7 +155,7 @@ const ItineraryForm = () => {
           <input
             type="number"
             name="duration"
-            value={formState.destination}
+            value={formState.duration}
             onChange={handleChange}
           />
         </div>
@@ -85,7 +167,7 @@ const ItineraryForm = () => {
           <input
             type="number"
             name="budget"
-            value={formState.destination}
+            value={formState.budget}
             onChange={handleChange}
           />
         </div>
@@ -93,13 +175,17 @@ const ItineraryForm = () => {
         <h3 className="userPreferencesText"> More preferences </h3>
         <section className="userPreferences">
           <p className="diningOptionsText">
-            Please provide some information regarding your{" "}
+            Provide some information regarding your{" "}
             <span className="boldDiningOptions">dining preferences 🍽️</span>
           </p>
           <div className="diningOptions">
             <div className="cuisineField">
               <label htmlFor="labelForCuisine"> Cuisine </label>
-              <select name="cuisine">
+              <select
+                name="userPreferences.diningOptions.cuisine"
+                value={formState.userPreferences.diningOptions.cuisine}
+                onChange={handleChange}
+              >
                 <option value=""> Select Cuisine </option>
                 <option value="italian">Italian 🍝 </option>
                 <option value="mexican">Mexican 🌮 </option>
@@ -111,7 +197,11 @@ const ItineraryForm = () => {
 
             <div className="typeField">
               <label htmlFor="labelForType"> Type </label>
-              <select name="type">
+              <select
+                name="userPreferences.diningOptions.type"
+                value={formState.userPreferences.diningOptions.type}
+                onChange={handleChange}
+              >
                 <option value=""> Select Type </option>
                 <option value="restaurant">Restaurant 🍴</option>
                 <option value="bar">Bar 🍸</option>
@@ -120,7 +210,11 @@ const ItineraryForm = () => {
 
             <div className="priceRangeField">
               <label htmlFor="labelForPrinceRange"> Price </label>
-              <select name="priceRange">
+              <select
+                name="userPreferences.diningOptions.priceRange"
+                value={formState.userPreferences.diningOptions.priceRange}
+                onChange={handleChange}
+              >
                 <option value=""> Select Price Range </option>
                 <option value="budget">$</option>
                 <option value="midrange">$$</option>
@@ -139,7 +233,11 @@ const ItineraryForm = () => {
           <div className="attractionsOptions">
             <div className="attractionTypeField">
               <label htmlFor="labelForAttractionType"> Type </label>
-              <select name="Attraction Type">
+              <select
+                name="userPreferences.attractionOptions.type"
+                value={formState.userPreferences.attractionOptions.type}
+                onChange={handleChange}
+              >
                 <option value=""> Select Type </option>
                 <option value="art">Art 🖼️ </option>
                 <option value="outdoor">Outdoor 🏞️ </option>
@@ -152,13 +250,23 @@ const ItineraryForm = () => {
 
             <div className="attractionPrice">
               <label htmlFor="labelForAttractionPrice"> Price </label>
-              <select name="attractionPrice">
+              <select
+                name="userPreferences.attractionOptions.priceRange"
+                value={formState.userPreferences.attractionOptions.priceRange}
+                onChange={handleChange}
+              >
                 <option value=""> Select Price </option>
                 <option value="budget">$</option>
                 <option value="midrange">$$</option>
                 <option value="highend">$$$</option>
               </select>
             </div>
+          </div>
+          <div className="submitArea">
+            <button type="submit" onClick={handleSubmit} disabled={loading}>
+              {loading ? "Creating your itinerary..." : "Create Itinerary"}
+            </button>
+            {error && <p className="error-message">Error: {error.message}</p>}
           </div>
         </section>
       </form>

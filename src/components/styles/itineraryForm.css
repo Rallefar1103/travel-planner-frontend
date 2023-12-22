@@ -16,7 +16,7 @@ hr {
     flex-direction: column;
     align-items: center;
     width: 75vw;
-    height: 80vw;
+    height: 90vw;
     background-color: rgb(213, 218, 198);
     border-radius: 20px;
     text-align: left;
@@ -125,4 +125,28 @@ input[name="budget"] {
 
 .boldAttractionsOptions {
     font-weight: 800;
+}
+
+/* Button */
+.submitArea{
+    padding-top: 1rem;
+    padding-right: 1.8rem;
+}
+
+.submitArea button {
+  width: 100%; 
+  padding: 1em 0; 
+  font-size: 1em; 
+  text-align: center; 
+  border: 1.5px solid black;
+  border-radius: 1em;
+  background-color: #ffffff;
+  color: black;
+  cursor: pointer; 
+  transition: background-color 0.3s;
+}
+
+.submitArea button:hover {
+  background-color: #148936; 
+  color: white;
 }
