@@ -18,7 +18,7 @@ export type DiningOptions = {
 };
 
 export type AttractionOptions = {
-    type: string[];
+    type: string;
     priceRange: string;
 }
 

@@ -17,7 +17,7 @@ const ItineraryForm = () => {
         priceRange: "",
       },
       attractionOptions: {
-        type: [""],
+        type: "",
         priceRange: "",
       },
     },
@@ -57,7 +57,6 @@ const ItineraryForm = () => {
 
     setFormState((prevState) => {
       if (nameParts.length === 3 && nameParts[0] === "userPreferences") {
-        // Ensure that the property names are valid keys
         if (nameParts[1] in prevState.userPreferences) {
           const preferenceKey = nameParts[1] as keyof UserPreferences;
           const optionKey = nameParts[2];
@@ -97,10 +96,10 @@ const ItineraryForm = () => {
 
     try {
       console.log("Submitting with form state", updatedFormState);
-      // const { data } = await createItinerary({
-      //   variables: { itineraryInput: updatedFormState },
-      // });
-      // console.log("Itinerary created:", data);
+      const { data } = await createItinerary({
+        variables: { itineraryInput: updatedFormState },
+      });
+      console.log("Itinerary created:", data);
 
       setFormState({
         title: "",
@@ -114,7 +113,7 @@ const ItineraryForm = () => {
             priceRange: "",
           },
           attractionOptions: {
-            type: [],
+            type: "",
             priceRange: "",
           },
         },
@@ -184,6 +183,7 @@ const ItineraryForm = () => {
               <select
                 name="userPreferences.diningOptions.cuisine"
                 value={formState.userPreferences.diningOptions.cuisine}
+                multiple={false}
                 onChange={handleChange}
               >
                 <option value=""> Select Cuisine </option>
@@ -200,6 +200,7 @@ const ItineraryForm = () => {
               <select
                 name="userPreferences.diningOptions.type"
                 value={formState.userPreferences.diningOptions.type}
+                multiple={false}
                 onChange={handleChange}
               >
                 <option value=""> Select Type </option>
@@ -213,6 +214,7 @@ const ItineraryForm = () => {
               <select
                 name="userPreferences.diningOptions.priceRange"
                 value={formState.userPreferences.diningOptions.priceRange}
+                multiple={false}
                 onChange={handleChange}
               >
                 <option value=""> Select Price Range </option>
@@ -236,6 +238,7 @@ const ItineraryForm = () => {
               <select
                 name="userPreferences.attractionOptions.type"
                 value={formState.userPreferences.attractionOptions.type}
+                multiple={false}
                 onChange={handleChange}
               >
                 <option value=""> Select Type </option>
@@ -253,6 +256,7 @@ const ItineraryForm = () => {
               <select
                 name="userPreferences.attractionOptions.priceRange"
                 value={formState.userPreferences.attractionOptions.priceRange}
+                multiple={false}
                 onChange={handleChange}
               >
                 <option value=""> Select Price </option>
