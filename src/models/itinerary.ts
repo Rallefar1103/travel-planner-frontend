@@ -19,5 +19,6 @@ export type DiningOptions = {
 
 export type AttractionOptions = {
     type: string[];
+    priceRange: string;
 }
 

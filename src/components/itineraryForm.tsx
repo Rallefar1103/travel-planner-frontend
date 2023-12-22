@@ -18,6 +18,7 @@ const ItineraryForm = () => {
 
   const attractionOptions: AttractionOptions = {
     type: [""],
+    priceRange: "",
   };
 
   const userPref: UserPreferences = {
