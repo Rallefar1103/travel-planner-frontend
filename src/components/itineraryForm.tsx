@@ -125,7 +125,7 @@ const ItineraryForm = () => {
 
   return (
     <section id="itineraryForm">
-      <h1 className="formTitle"> Travel Planner 🌴 🛫 </h1>
+      <h1 className="formTitle"> Daily Travel Planner 🌴 🛫 </h1>
       <p className="formDescription">
         {" "}
         Input your travel preferences below and the Travel Planner tool will
@@ -149,7 +149,7 @@ const ItineraryForm = () => {
 
         <div className="durationField">
           <label className="labelForDuration" htmlFor="duration">
-            ⏳ Duration (days)
+            ⏳ Duration (hours)
           </label>
           <input
             type="number"
@@ -175,7 +175,7 @@ const ItineraryForm = () => {
         <section className="userPreferences">
           <p className="diningOptionsText">
             Provide some information regarding your{" "}
-            <span className="boldDiningOptions">dining preferences 🍽️</span>
+            <span className="boldDiningOptions">dinner preferences 🍽️</span>
           </p>
           <div className="diningOptions">
             <div className="cuisineField">
