@@ -8,7 +8,7 @@ hr {
     background-color: black;
     margin-bottom: 25px;
     margin-right: 25px;
-    height: 1px;
+    height: 1.5px;
 }
 
 
@@ -17,7 +17,7 @@ hr {
     align-items: center;
     width: 75vw;
     height: 90vw;
-    background-color: rgb(213, 218, 198);
+    background-color: rgb(92, 200, 175);
     border-radius: 20px;
     text-align: left;
     padding: 4rem;
