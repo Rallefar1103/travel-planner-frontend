@@ -224,10 +224,10 @@ const ItineraryForm = () => {
                 required={true}
               >
                 <option value=""> Select Price Range </option>
-                <option value="budget">$</option>
-                <option value="midrange">$$</option>
-                <option value="expensive">$$$</option>
-                <option value="fineDining">$$$$</option>
+                <option value="1">$</option>
+                <option value="2">$$</option>
+                <option value="3">$$$</option>
+                <option value="4">$$$$</option>
               </select>
             </div>
           </div>
