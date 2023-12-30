@@ -136,7 +136,7 @@ const ItineraryForm = () => {
       <form className="form" onSubmit={handleSubmit}>
         <div className="destinationField">
           <label className="labelForDestination" htmlFor="destination">
-            🌎 Destination (city)
+            🌎 Destination City
           </label>
           <input
             type="text"
@@ -144,30 +144,33 @@ const ItineraryForm = () => {
             value={formState.destination}
             onChange={handleChange}
             placeholder="Where to?"
+            required={true}
           />
         </div>
 
         <div className="durationField">
           <label className="labelForDuration" htmlFor="duration">
-            ⏳ Duration (hours)
+            ⏳ Hours at destination
           </label>
           <input
             type="number"
             name="duration"
             value={formState.duration}
             onChange={handleChange}
+            required={true}
           />
         </div>
 
         <div className="budgetField">
           <label className="labelForBudget" htmlFor="budget">
-            💰 Budget ($)
+            💰 Budget for the day
           </label>
           <input
             type="number"
             name="budget"
             value={formState.budget}
             onChange={handleChange}
+            required={true}
           />
         </div>
 
@@ -185,6 +188,7 @@ const ItineraryForm = () => {
                 value={formState.userPreferences.diningOptions.cuisine}
                 multiple={false}
                 onChange={handleChange}
+                required={true}
               >
                 <option value=""> Select Cuisine </option>
                 <option value="italian">Italian 🍝 </option>
@@ -202,6 +206,7 @@ const ItineraryForm = () => {
                 value={formState.userPreferences.diningOptions.type}
                 multiple={false}
                 onChange={handleChange}
+                required={true}
               >
                 <option value=""> Select Type </option>
                 <option value="restaurant">Restaurant 🍴</option>
@@ -216,6 +221,7 @@ const ItineraryForm = () => {
                 value={formState.userPreferences.diningOptions.priceRange}
                 multiple={false}
                 onChange={handleChange}
+                required={true}
               >
                 <option value=""> Select Price Range </option>
                 <option value="budget">$</option>
@@ -240,6 +246,7 @@ const ItineraryForm = () => {
                 value={formState.userPreferences.attractionOptions.type}
                 multiple={false}
                 onChange={handleChange}
+                required={true}
               >
                 <option value=""> Select Type </option>
                 <option value="art">Art 🖼️ </option>
@@ -258,6 +265,7 @@ const ItineraryForm = () => {
                 value={formState.userPreferences.attractionOptions.priceRange}
                 multiple={false}
                 onChange={handleChange}
+                required={true}
               >
                 <option value=""> Select Price </option>
                 <option value="budget">$</option>
