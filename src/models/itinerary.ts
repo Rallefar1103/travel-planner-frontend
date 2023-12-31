@@ -1,9 +1,11 @@
 export type Itinerary = {
+    id: string;
+    title: string;
     destination: string;
     budget: string;
     duration: string;
-    UserPreferences: UserPreferences;
-
+    userPreferences: UserPreferences;
+    recommendedItineraryDescription: string;
 };
 
 export type UserPreferences = {

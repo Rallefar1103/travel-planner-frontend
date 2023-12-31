@@ -2,9 +2,20 @@ import React, { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import "./styles/itineraryForm.css";
 
-import { UserPreferences } from "../models/itinerary";
+import { Itinerary, UserPreferences } from "../models/itinerary";
+import parseItineraryResponse from "../handlers/parseItineraryResponse";
 
-const ItineraryForm = () => {
+interface ItineraryFormProps {
+  onSubmissionStart: () => void;
+  onSubmissionSuccess: (itineraryData: any) => void;
+  onSubmissionError: (error: Error) => void;
+}
+
+const ItineraryForm: React.FC<ItineraryFormProps> = ({
+  onSubmissionStart,
+  onSubmissionSuccess,
+  onSubmissionError,
+}) => {
   const [formState, setFormState] = useState({
     title: "",
     destination: "",
@@ -94,12 +105,16 @@ const ItineraryForm = () => {
       title: title,
     };
 
+    onSubmissionStart();
+
     try {
-      console.log("Submitting with form state", updatedFormState);
       const { data } = await createItinerary({
         variables: { itineraryInput: updatedFormState },
       });
-      console.log("Itinerary created:", data);
+
+      // parse graphql response
+      const parsedData = parseItineraryResponse(data);
+      onSubmissionSuccess(parsedData);
 
       setFormState({
         title: "",
@@ -118,8 +133,9 @@ const ItineraryForm = () => {
           },
         },
       });
-    } catch (e) {
+    } catch (e: any) {
       console.error("Error creating itinerary:", e);
+      onSubmissionError(e);
     }
   };
 
