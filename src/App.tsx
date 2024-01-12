@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 import "./App.css";
-import ItineraryForm from "./components/itineraryForm";
+import ItineraryForm from "./components/FormComponent/itineraryForm";
 import { Itinerary } from "./models/itinerary";
-import Spinner from "./components/spinner";
-import ItineraryDataComponent from "./components/itineraryData";
+import Spinner from "./components/Spinner/spinner";
+import ItineraryDataComponent from "./components/ItineraryData/itineraryData";
 
 function App() {
   const [view, setView] = useState<"form" | "spinner" | "itinerary">("form");

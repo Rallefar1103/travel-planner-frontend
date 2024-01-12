@@ -2,15 +2,18 @@
 
 .spinnerContainer {
   font-family: 'Lato', sans-serif;
-  flex-direction: column;
-  align-items: center;
+  display: flex;
   width: 75vw;
   height: 90vw;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(92, 200, 175);
   border-radius: 20px;
-  text-align: left;
   padding: 4rem;
+  color: #fff; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for depth */
 }
-
 
 .spinner {
     border: 5px solid rgba(0, 0, 0, 0.3); 
@@ -19,6 +22,12 @@
     width: 50px;
     height: 50px;
     animation: spin 1s linear infinite;
+  }
+
+  .spinnerText {
+    color: black;
+    margin-bottom: 0.5rem;
+    margin-left: 1em; /* Aligns text with the above indentation */
   }
   
   @keyframes spin {

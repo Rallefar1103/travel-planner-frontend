@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
-import "./styles/itineraryForm.css";
+import "./itineraryForm.css";
 
-import { Itinerary, UserPreferences } from "../models/itinerary";
-import parseItineraryResponse from "../handlers/parseItineraryResponse";
+import { Itinerary, UserPreferences } from "../../models/itinerary";
+import parseItineraryResponse from "../../handlers/parseItineraryResponse";
 
 interface ItineraryFormProps {
   onSubmissionStart: () => void;
@@ -141,7 +141,7 @@ const ItineraryForm: React.FC<ItineraryFormProps> = ({
 
   return (
     <section id="itineraryForm">
-      <h1 className="formTitle"> Daily Travel Planner 🌴 🛫 </h1>
+      <h1 className="formTitle"> City Vacation Planner 🌴 🛫 </h1>
       <p className="formDescription">
         {" "}
         Input your travel preferences below and the Travel Planner tool will
@@ -179,7 +179,7 @@ const ItineraryForm: React.FC<ItineraryFormProps> = ({
 
         <div className="budgetField">
           <label className="labelForBudget" htmlFor="budget">
-            💰 Budget for the day
+            💰 Budget for your trip ($)
           </label>
           <input
             type="number"

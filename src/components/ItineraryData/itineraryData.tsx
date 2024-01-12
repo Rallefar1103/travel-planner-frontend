@@ -1,6 +1,6 @@
 import React from "react";
-import { Itinerary } from "../models/itinerary";
-import "./styles/itineraryData.css";
+import { Itinerary } from "../../models/itinerary";
+import "./itineraryData.css";
 
 interface ItineraryDataProps {
   itineraryData: Itinerary;
