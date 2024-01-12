@@ -5,6 +5,7 @@ import ItineraryForm from "./components/FormComponent/itineraryForm";
 import { Itinerary } from "./models/itinerary";
 import Spinner from "./components/Spinner/spinner";
 import ItineraryDataComponent from "./components/ItineraryData/itineraryData";
+import Hero from "./components/Hero/Hero";
 
 function App() {
   const [view, setView] = useState<"form" | "spinner" | "itinerary">("form");
@@ -33,22 +34,21 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        {view === "form" && (
-          <ItineraryForm
-            onSubmissionStart={handleSubmissionStart}
-            onSubmissionSuccess={handleSubmissionSuccess}
-            onSubmissionError={handleSubmissionError}
-          />
-        )}
-        {view === "spinner" && <Spinner />}
-        {view === "itinerary" && (
-          <ItineraryDataComponent
-            itineraryData={itineraryData}
-            onClose={handleCloseItinerary}
-          />
-        )}
-      </header>
+      <Hero />
+      {/* {view === "form" && (
+        <ItineraryForm
+          onSubmissionStart={handleSubmissionStart}
+          onSubmissionSuccess={handleSubmissionSuccess}
+          onSubmissionError={handleSubmissionError}
+        />
+      )}
+      {view === "spinner" && <Spinner />}
+      {view === "itinerary" && (
+        <ItineraryDataComponent
+          itineraryData={itineraryData}
+          onClose={handleCloseItinerary}
+        />
+      )} */}
     </div>
   );
 }
