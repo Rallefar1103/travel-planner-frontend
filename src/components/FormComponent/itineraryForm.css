@@ -20,12 +20,21 @@
     margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    padding-top: 0;
+    flex-direction: column; /* Stack the children vertically */
+    align-items: center; /* Center align the children */
     padding: var(--section-padding);
+  
     background-color: var(--bg-color);
     border-radius: var(--input-border-radius);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 2); /* Optional: adds a subtle shadow for depth */
+  }
+
+  .form-content {
+    display: flex;
+    justify-content: space-between;
+
+    align-items: flex-start;
+    width: 100%; /* This will contain both the left and right sections */
   }
 
   .bold {
@@ -93,12 +102,10 @@
   }
   
   .submit-area {
-    display: flex;
-    width: 100%; /* Ensure the submit area takes the full width of its container */
-    justify-content: center; /* Center the button, this can be removed since the button will be full width */
+    width: 100%;
     margin-top: var(--button-margin-top);
+    
   }
-  
   
   .submit-area button {
     padding: var(--button-padding);
