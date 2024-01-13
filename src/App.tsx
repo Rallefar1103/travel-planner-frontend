@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import "./App.css";
 import ItineraryForm from "./components/FormComponent/itineraryForm";
@@ -32,11 +32,17 @@ function App() {
     setView("form");
   };
 
+  const itineraryRef = useRef<HTMLDivElement>(null);
+
+  const scrollToItinerary = () => {
+    itineraryRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="App">
-      <Hero />
-
+      <Hero onGetStartedClick={scrollToItinerary} />
       <ItineraryForm
+        ref={itineraryRef}
         onSubmissionStart={handleSubmissionStart}
         onSubmissionSuccess={handleSubmissionSuccess}
         onSubmissionError={handleSubmissionError}
