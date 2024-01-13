@@ -1,5 +1,6 @@
 .App {
   min-height: 100vh;
+  background-color: "#3C3C3C";
   display: flex;
   flex-direction: column;
   align-items: center;

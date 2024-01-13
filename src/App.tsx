@@ -35,20 +35,12 @@ function App() {
   return (
     <div className="App">
       <Hero />
-      {/* {view === "form" && (
-        <ItineraryForm
-          onSubmissionStart={handleSubmissionStart}
-          onSubmissionSuccess={handleSubmissionSuccess}
-          onSubmissionError={handleSubmissionError}
-        />
-      )}
-      {view === "spinner" && <Spinner />}
-      {view === "itinerary" && (
-        <ItineraryDataComponent
-          itineraryData={itineraryData}
-          onClose={handleCloseItinerary}
-        />
-      )} */}
+
+      <ItineraryForm
+        onSubmissionStart={handleSubmissionStart}
+        onSubmissionSuccess={handleSubmissionSuccess}
+        onSubmissionError={handleSubmissionError}
+      />
     </div>
   );
 }

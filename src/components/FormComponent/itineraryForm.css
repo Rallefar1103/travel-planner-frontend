@@ -1,152 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
 
-#itineraryForm, .formDescription, .formTitle {
+
+:root {
+    --bg-color: #f2f2f2; /* Background color for the form section */
+    --section-padding: 4rem; /* Padding around the entire form section */
+    --container-margin: 2rem; /* Margin for individual containers */
+    --input-padding: 0.75rem; /* Padding for input fields */
+    --input-margin-bottom: 1.5rem; /* Space between input fields */
+    --input-border-radius: 8px; /* Rounded corners for input fields */
+    --button-padding: 1rem; /* Padding for buttons */
+    --button-margin-top: 2rem; /* Space above the submit button */
+    --button-border-radius: 20px; /* Rounded corners for buttons */
+    /* Other variables remain unchanged */
+  }
+  
+  #itineraryForm {
     font-family: 'Lato', sans-serif;
-}
-
-hr {
-    background-color: black;
-    margin-bottom: 25px;
-    margin-right: 25px;
-    height: 1.5px;
-}
-
-
-#itineraryForm {
-    flex-direction: column;
-    align-items: center;
-    width: 75vw;
-    height: 90vw;
-    background-color: rgb(92, 200, 175);
-    border-radius: 20px;
-    text-align: left;
-    padding: 4rem;
-    
-}
-
-
-.formDescription {
-    font-size: 25;
-    color: black;
-    width: 70vw;
-    padding-bottom: 0.75rem;
-}
-
-/* Labels */
-
-
-.labelForDestination {
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-input[name="destination"] {
-    width: 30vw;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-
-
-.labelForDuration {
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-input[name="duration"] {
-    width: 30vw;
-    padding: 0.5rem;
-    margin-bottom: 1em;
-}
-
-
-.labelForBudget {
-    display: block;
-    margin-bottom: 0.5rem
-}
-
-input[name="budget"] {
-    width: 30vw;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-/* Dining Options */
-.diningOptions {
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
-    flex-direction: row;
-    text-align: center;
-}
-
-.diningOptions > div {
-    margin-right: 2rem; 
-    width: 100%; 
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 100vw; /* Max width of the form section to prevent it from getting too wide */
+    padding: var(--section-padding);
+    background-color: var(--bg-color);
+    border-radius: var(--input-border-radius);
+    font-family: var(--font-family);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 2); /* Optional: adds a subtle shadow for depth */
   }
   
-
-.diningOptions label {
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.diningOptions select {
-    width: 100%; 
-    padding: 0.5rem; 
-    margin-bottom: 1rem;
-  }
-
-.boldDiningOptions {
-    font-weight: 800;
-}
-
-/* Attraction Options */
-.attractionsOptions {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-}
-
-.attractionsOptions > div {
-    margin-right: 2rem; 
-    width: 100%; 
+  .left-section {
+    padding-right: 100px;
+    width: 30vw;
   }
   
-
-.attractionsOptions label {
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.attractionsOptions select {
-    width: 100%; 
-    padding: 0.5rem; 
-    margin-bottom: 1rem;
+  .right-section {
+    margin: var(--container-margin);
   }
 
-.boldAttractionsOptions {
-    font-weight: 800;
-}
+  .form-group {
+    margin-bottom: var(--input-margin-bottom);
+  }
 
-/* Button */
-.submitArea{
-    padding-top: 1rem;
-    padding-right: 1.8rem;
-}
-
-.submitArea button {
-  width: 100%; 
-  padding: 1em 0; 
-  font-size: 1em; 
-  text-align: center; 
-  border: 1.5px solid black;
-  border-radius: 1em;
-  background-color: #ffffff;
-  color: black;
-  cursor: pointer; 
-  transition: background-color 0.3s;
-}
-
-.submitArea button:hover {
-  background-color: #148936; 
-  color: white;
-}
+  .form-label {
+    display: block; /* Make the label a block element to ensure it takes up the full width */
+    margin-bottom: 0.5rem;
+  }
+  
+  
+  .form-input, .form select {
+    width: 100%;
+    padding: var(--input-padding);
+    margin-bottom: var(--input-margin-bottom);
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--input-border-radius);
+  }
+  
+  .submitArea {
+    display: flex;
+    justify-content: center; /* Center the button */
+    margin-top: var(--button-margin-top);
+  }
+  
+  .submitArea button {
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
+    /* Rest of the button styles remain unchanged */
+  }
+  /* Adjust the layout for smaller screens */
+  @media (max-width: 768px) {
+    #itineraryForm {
+      flex-direction: column;
+      padding: var(--section-padding);
+    }
+  
+    .left-section, .right-section {
+      margin: var(--container-margin) var(--container-margin) var(--input-margin-bottom);
+    }
+  }
+  
