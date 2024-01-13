@@ -3,8 +3,8 @@
 
 :root {
     --bg-color: #f2f2f2; /* Background color for the form section */
-    --section-padding: 4rem; /* Padding around the entire form section */
-    --container-margin: 2rem; /* Margin for individual containers */
+    --section-padding: 5rem; /* Padding around the entire form section */
+    --container-margin: 10px; /* Margin for individual containers */
     --input-padding: 0.75rem; /* Padding for input fields */
     --input-margin-bottom: 1.5rem; /* Space between input fields */
     --input-border-radius: 8px; /* Rounded corners for input fields */
@@ -21,21 +21,56 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    max-width: 100vw; /* Max width of the form section to prevent it from getting too wide */
+    padding-top: 0;
     padding: var(--section-padding);
     background-color: var(--bg-color);
     border-radius: var(--input-border-radius);
-    font-family: var(--font-family);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 2); /* Optional: adds a subtle shadow for depth */
+  }
+
+  .bold {
+    font-weight: 700;
+  }
+
+  .form-intro {
+    margin-top: 0;
+    font-size: 40px;
+  }
+
+  .form-dest-info {
+    font-size: 20px;
+  }
+
+  .form-dining-info {
+    
+    font-size: 20px;
+  }
+
+  .form-attractions-info {
+   
+    font-size: 20px;
+  }
+
+  .form-preferences {
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  .form-attractions {
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 5px;
   }
   
   .left-section {
+    margin: var(--container-margin);
     padding-right: 100px;
     width: 30vw;
   }
   
   .right-section {
     margin: var(--container-margin);
+    width: 40vw;
   }
 
   .form-group {
@@ -45,6 +80,7 @@
   .form-label {
     display: block; /* Make the label a block element to ensure it takes up the full width */
     margin-bottom: 0.5rem;
+    font-size: 20px;
   }
   
   
@@ -56,15 +92,23 @@
     border-radius: var(--input-border-radius);
   }
   
-  .submitArea {
+  .submit-area {
     display: flex;
-    justify-content: center; /* Center the button */
+    width: 100%; /* Ensure the submit area takes the full width of its container */
+    justify-content: center; /* Center the button, this can be removed since the button will be full width */
     margin-top: var(--button-margin-top);
   }
   
-  .submitArea button {
+  
+  .submit-area button {
     padding: var(--button-padding);
+    width: 100%; /* Make the button full width */
     border-radius: var(--button-border-radius);
+    border: 1px solid black; /* Change border color to black */
+    background-color: #ffffff; /* Set the background color of the button to white or any desired color */
+    color: black; /* Change the text color to black */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    font-weight: bold; /* Optional: if you want the text on the button to be bold */
     /* Rest of the button styles remain unchanged */
   }
   /* Adjust the layout for smaller screens */
