@@ -13,27 +13,30 @@
   .hero-text-box {
     text-align: center;
     max-width: 50vw;
+    background: transparent;
   }
   
   h1 {
     font-size: 3vw; 
     margin-bottom: 1rem;
+    background: transparent;
   }
   
   .button-group {
     display: flex;
     justify-content: center;
     gap: 1rem; 
+    background: transparent;
   }
   
   button {
     padding: 0.7vw;
-    font-size: 1.1vw;
+    font-size: 1vw;
     color: #fff;
     background-color: transparent; 
     border: 2px solid #fff; 
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 15px;
     transition: background-color 0.3s;
   }
   
