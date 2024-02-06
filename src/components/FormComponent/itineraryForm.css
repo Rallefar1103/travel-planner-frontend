@@ -16,18 +16,17 @@
   }
   
   #itineraryForm {
-    font-family: 'Lato', sans-serif;
     margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
-    flex-direction: column; /* Stack the children vertically */
-    align-items: center; /* Center align the children */
+    flex-direction: column; 
+    align-items: center; 
     padding: var(--section-padding);
   
     background-color: var(--bg-color);
     border-radius: var(--input-border-radius);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 2); /* Optional: adds a subtle shadow for depth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 2); 
   }
 
   .form-content {
@@ -35,7 +34,7 @@
     justify-content: space-between;
 
     align-items: flex-start;
-    width: 100%; /* This will contain both the left and right sections */
+    width: 100%; 
   }
 
   .bold {
