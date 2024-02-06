@@ -1,7 +1,9 @@
 import React, { useState, forwardRef, Ref } from "react";
 import { gql, useMutation } from "@apollo/client";
 import "./itineraryForm.css";
-
+import TravelImg from "../../assets/travel-one.jpg";
+import CuisineImg from "../../assets/food.jpg";
+import AttractionImg from "../../assets/attraction.jpg";
 import { Itinerary, UserPreferences } from "../../models/itinerary";
 import parseItineraryResponse from "../../handlers/parseItineraryResponse";
 
@@ -142,17 +144,35 @@ const ItineraryForm = forwardRef<HTMLDivElement, ItineraryFormProps>(
     return (
       <section id="itineraryForm" ref={ref}>
         <div className="intro-section">
-          <div className="intro-section-left"></div>
+          <div className="intro-section-left">
+            <img
+              src={TravelImg}
+              alt="intro-img"
+              className="intro-section-img"
+            />
+          </div>
           <div className="intro-section-right"></div>
         </div>
 
         <div className="cuisine-section">
           <div className="cuisine-section-left"></div>
-          <div className="cuisine-section-right"></div>
+          <div className="cuisine-section-right">
+            <img
+              src={CuisineImg}
+              alt="cuisine-img"
+              className="cuisine-section-img"
+            />
+          </div>
         </div>
 
         <div className="attraction-section">
-          <div className="attaction-section-left"></div>
+          <div className="attraction-section-left">
+            <img
+              src={AttractionImg}
+              alt="attraction-img"
+              className="attraction-section-img"
+            />
+          </div>
           <div className="attraction-section-right"></div>
         </div>
 
