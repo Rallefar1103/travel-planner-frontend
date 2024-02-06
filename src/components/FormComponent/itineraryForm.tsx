@@ -226,6 +226,7 @@ const ItineraryForm = forwardRef<HTMLDivElement, ItineraryFormProps>(
                   onChange={handleChange}
                   required={true}
                 >
+                  <option value=""> Select Cuisine </option>
                   <option value="italian">Italian 🍝 </option>
                   <option value="mexican">Mexican 🌮 </option>
                   <option value="japanese">Japanese 🍣 </option>
@@ -247,7 +248,8 @@ const ItineraryForm = forwardRef<HTMLDivElement, ItineraryFormProps>(
                   onChange={handleChange}
                   required={true}
                 >
-                  ´<option value="restaurant">Restaurant 🍴</option>
+                  <option value=""> Select Type </option>
+                  <option value="restaurant">Restaurant 🍴</option>
                   <option value="bar">Bar 🍸</option>
                 </select>
               </div>
@@ -264,7 +266,8 @@ const ItineraryForm = forwardRef<HTMLDivElement, ItineraryFormProps>(
                   onChange={handleChange}
                   required={true}
                 >
-                  ´<option value="1">$</option>
+                  <option value=""> Price Range </option>
+                  <option value="1">$</option>
                   <option value="2">$$</option>
                   <option value="3">$$$</option>
                   <option value="4">$$$$</option>
