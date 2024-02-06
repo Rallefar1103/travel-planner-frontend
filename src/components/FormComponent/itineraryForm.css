@@ -1,132 +1,130 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
 
 
-:root {
-    --bg-color: #f2f2f2; /* Background color for the form section */
-    --section-padding: 5rem; /* Padding around the entire form section */
-    --container-margin: 10px; /* Margin for individual containers */
-    --input-padding: 0.75rem; /* Padding for input fields */
-    --input-margin-bottom: 1.5rem; /* Space between input fields */
-    --input-border-radius: 8px; /* Rounded corners for input fields */
-    --button-padding: 1rem; /* Padding for buttons */
-    --button-margin-top: 2rem; /* Space above the submit button */
-    --button-border-radius: 20px; /* Rounded corners for buttons */
-    --input-border-color: black;
-   
-  }
-  
+
   #itineraryForm {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 2vh;
+    margin-bottom: 10vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column; 
     align-items: center; 
-    padding: var(--section-padding);
-  
-    background-color: var(--bg-color);
-    border-radius: var(--input-border-radius);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 2); 
   }
 
-  .form-content {
+  .intro-section {
+    width: 100%;
+    height: 90vh; 
     display: flex;
-    justify-content: space-between;
-
-    align-items: flex-start;
-    width: 100%; 
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
   }
 
-  .bold {
-    font-weight: 700;
+  .intro-section-left {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    max-width: 50vw;
+    height: 90vh;
   }
 
-  .form-intro {
-    margin-top: 0;
-    font-size: 40px;
-  }
-
-  .form-dest-info {
-    font-size: 20px;
-  }
-
-  .form-dining-info {
-    
-    font-size: 20px;
-  }
-
-  .form-attractions-info {
-
-    font-size: 20px;
-  }
-
-  .form-preferences {
-    font-size: 30px;
-    font-weight: 700;
-  }
-
-  .form-attractions {
-    font-size: 20px;
-    font-weight: 600;
-    padding-top: 12px;
-  }
-  
-  .left-section {
-    margin: var(--container-margin);
-    padding-right: 100px;
-    width: 30vw;
-  }
-  
-  .right-section {
-    margin: var(--container-margin);
-    width: 40vw;
-  }
-
-  .form-group {
-    margin-bottom: var(--input-margin-bottom);
-  }
-
-  .form-label {
-    display: block; /* Make the label a block element to ensure it takes up the full width */
-    margin-bottom: 0.5rem;
-    font-size: 20px;
-  }
-  
-  
-  .form-input, .form select {
+  .intro-section-img {
     width: 100%;
-    padding: var(--input-padding);
-    margin-bottom: var(--input-margin-bottom);
-    border: 1px solid var(--input-border-color);
-    border-radius: var(--input-border-radius);
+    height: 100vh;
+    object-fit: cover;
+    border-bottom-right-radius: 10px;
+    box-shadow: 
+    6px 0 15px -5px #F54B41,
+    12px 0 15px -5px #2585BE,
+    2px 0 15px -5px #F9DBC1;
   }
   
-  .submit-area {
+
+  .intro-section-right  {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+  }
+
+  .cuisine-section {
     width: 100%;
-    margin-top: var(--button-margin-top);
-    
+    height: 90vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .cuisine-section-left {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    max-width: 50vw;
+    height: 90vh;
+  }
+
+  .cuisine-section-img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    border-bottom-right-radius: 10px;
+    box-shadow: 
+    6px 0 15px -5px #F54B41,
+    12px 0 15px -5px #2585BE,
+    2px 0 15px -5px #F9DBC1;
+  }
+
+  .cuisine-section-right {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+  }
+
+  .attraction-section {
+    width: 100%;
+    height: 90vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .attraction-section-left {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    max-width: 50vw;
+    height: 90vh;
+  }
+
+  .attraction-section-img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    border-bottom-right-radius: 10px;
+    box-shadow: 
+    6px 0 15px -5px #F54B41,
+    12px 0 15px -5px #2585BE,
+    2px 0 15px -5px #F9DBC1;
+  }
+
+  .attraction-section-right {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
   }
   
-  .submit-area button {
-    padding: var(--button-padding);
-    width: 100%; /* Make the button full width */
-    border-radius: var(--button-border-radius);
-    border: 1px solid black; /* Change border color to black */
-    background-color: #ffffff; /* Set the background color of the button to white or any desired color */
-    color: black; /* Change the text color to black */
-    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
-    font-weight: bold; /* Optional: if you want the text on the button to be bold */
-    /* Rest of the button styles remain unchanged */
-  }
-  /* Adjust the layout for smaller screens */
-  @media (max-width: 768px) {
-    #itineraryForm {
-      flex-direction: column;
-      padding: var(--section-padding);
-    }
   
-    .left-section, .right-section {
-      margin: var(--container-margin) var(--container-margin) var(--input-margin-bottom);
-    }
-  }
   

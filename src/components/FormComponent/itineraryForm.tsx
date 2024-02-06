@@ -141,32 +141,31 @@ const ItineraryForm = forwardRef<HTMLDivElement, ItineraryFormProps>(
 
     return (
       <section id="itineraryForm" ref={ref}>
-        <div className="form-content">
-          <div className="left-section">
-            <p className="form-intro">Start by filling out the form! 👉</p>
-            <p className="form-dest-info">
-              <span className="bold">First step</span> is to fill in the
-              essentials of what city you want to visit, how many hours you
-              expect to spend in that city and the budget for your stay.
-            </p>
+        <div className="intro-section">
+          <div className="intro-section-left"></div>
+          <div className="intro-section-right"></div>
+        </div>
 
-            <p className="form-dining-info">
-              <span className="bold">Next step</span> is to tell us something
-              about where you'd like to dine for your stay. Fill out the type of
-              cuisine you'd like, the type of venue, and lastly the desired
-              price range!
-            </p>
+        <div className="cuisine-section">
+          <div className="cuisine-section-left"></div>
+          <div className="cuisine-section-right"></div>
+        </div>
 
-            <p className="form-attractions-info">
-              <span className="bold">Last step</span> is to elaborate on what
-              kind of attractions you'd like to spend your time exploring at
-              your destination. Fill out the type of attraction you wish to
-              visit, and the price range.
-            </p>
+        <div className="attraction-section">
+          <div className="attaction-section-left"></div>
+          <div className="attraction-section-right"></div>
+        </div>
 
-            <p className="form-attractions">Attractions preferences</p>
+        <div className="itinerary-result-section"></div>
+      </section>
+    );
+  }
+);
 
-            <div className="form-group">
+export default ItineraryForm;
+
+{
+  /* <div className="form-group">
               <label className="form-label" htmlFor="attraction-type">
                 {" "}
                 Type{" "}
@@ -187,9 +186,11 @@ const ItineraryForm = forwardRef<HTMLDivElement, ItineraryFormProps>(
                 <option value="sports">Sports 🏟️ </option>
                 <option value="city">City 🌆 </option>
               </select>
-            </div>
+            </div> */
+}
 
-            <div className="form-group">
+{
+  /* <div className="form-group">
               <label className="form-label" htmlFor="labelForAttractionPrice">
                 {" "}
                 Price{" "}
@@ -207,13 +208,15 @@ const ItineraryForm = forwardRef<HTMLDivElement, ItineraryFormProps>(
                 <option value="midrange">$$</option>
                 <option value="highend">$$$</option>
               </select>
-            </div>
+            </div> */
+}
 
-            {/* Include any logos or additional info here */}
-          </div>
-          <div className="right-section">
-            <form className="form" onSubmit={handleSubmit}>
-              <div className="form-group">
+{
+  /* Include any logos or additional info here */
+}
+
+{
+  /* <div className="form-group">
                 <label className="form-label" htmlFor="destination">
                   🌎 Destination City
                 </label>
@@ -226,9 +229,11 @@ const ItineraryForm = forwardRef<HTMLDivElement, ItineraryFormProps>(
                   placeholder="Where to?"
                   required={true}
                 />
-              </div>
+              </div> */
+}
 
-              <div className="form-group">
+{
+  /* <div className="form-group">
                 <label className="form-label" htmlFor="duration">
                   ⏳ Hours at destination
                 </label>
@@ -240,8 +245,10 @@ const ItineraryForm = forwardRef<HTMLDivElement, ItineraryFormProps>(
                   onChange={handleChange}
                   required={true}
                 />
-              </div>
-
+              </div> */
+}
+{
+  /* 
               <div className="form-group">
                 <label className="form-label" htmlFor="budget">
                   💰 Budget for your trip ($)
@@ -254,12 +261,11 @@ const ItineraryForm = forwardRef<HTMLDivElement, ItineraryFormProps>(
                   onChange={handleChange}
                   required={true}
                 />
-              </div>
+              </div> */
+}
 
-              <h3 className="form-preferences"> More preferences </h3>
-
-              <div className="diningOptions">
-                <div className="form-group">
+{
+  /* <div className="form-group">
                   <label className="form-label" htmlFor="cuisine">
                     {" "}
                     Cuisine{" "}
@@ -279,9 +285,11 @@ const ItineraryForm = forwardRef<HTMLDivElement, ItineraryFormProps>(
                     <option value="mediterranean">Mediterranean 🥙 </option>
                     <option value="american">American 🍔 </option>
                   </select>
-                </div>
+                </div> */
+}
 
-                <div className="form-group">
+{
+  /* <div className="form-group">
                   <label className="form-label" htmlFor="restaurant-type">
                     {" "}
                     Type{" "}
@@ -298,9 +306,11 @@ const ItineraryForm = forwardRef<HTMLDivElement, ItineraryFormProps>(
                     <option value="restaurant">Restaurant 🍴</option>
                     <option value="bar">Bar 🍸</option>
                   </select>
-                </div>
+                </div> */
+}
 
-                <div className="form-group">
+{
+  /* <div className="form-group">
                   <label className="form-label" htmlFor="restaurant-price">
                     {" "}
                     Price{" "}
@@ -319,20 +329,14 @@ const ItineraryForm = forwardRef<HTMLDivElement, ItineraryFormProps>(
                     <option value="3">$$$</option>
                     <option value="4">$$$$</option>
                   </select>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div className="submit-area">
+                </div> */
+}
+
+{
+  /* <div className="submit-area">
           <button type="submit" onClick={handleSubmit} disabled={loading}>
             {loading ? "Creating your itinerary..." : "Create Itinerary"}
           </button>
           {error && <p className="error-message">Error: {error.message}</p>}
-        </div>
-      </section>
-    );
-  }
-);
-
-export default ItineraryForm;
+        </div> */
+}
