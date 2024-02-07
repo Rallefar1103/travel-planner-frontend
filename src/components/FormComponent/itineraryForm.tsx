@@ -18,6 +18,7 @@ const ItineraryForm = forwardRef<HTMLDivElement, ItineraryFormProps>(
     { onSubmissionStart, onSubmissionSuccess, onSubmissionError },
     ref: Ref<HTMLDivElement>
   ) => {
+    const [itineraryData, setItineraryData] = useState("");
     const [formState, setFormState] = useState({
       title: "",
       destination: "",
@@ -117,7 +118,7 @@ const ItineraryForm = forwardRef<HTMLDivElement, ItineraryFormProps>(
 
         // parse graphql response
         const parsedData = parseItineraryResponse(data);
-        onSubmissionSuccess(parsedData);
+        setItineraryData(parsedData.recommendedItineraryDescription);
 
         setFormState({
           title: "",
@@ -357,7 +358,7 @@ const ItineraryForm = forwardRef<HTMLDivElement, ItineraryFormProps>(
           </div>
         </div>
 
-        <div className="itinerary-result-section"></div>
+        <div className="itinerary-result-section">{itineraryData}</div>
       </section>
     );
   }
