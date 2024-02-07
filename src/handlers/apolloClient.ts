@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
 const apolloClient = new ApolloClient({
-  uri: "http://graphql-server:9000",
+  uri: "http://localhost:8080/api/graphql/", // Pointing to Nginx reverse proxy
   cache: new InMemoryCache(),
 });
 

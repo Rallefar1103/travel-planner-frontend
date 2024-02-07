@@ -110,6 +110,7 @@ const ItineraryForm = forwardRef<HTMLDivElement, ItineraryFormProps>(
       onSubmissionStart();
 
       try {
+        console.log("Calling 'createItinerary'");
         const { data } = await createItinerary({
           variables: { itineraryInput: updatedFormState },
         });
@@ -136,7 +137,7 @@ const ItineraryForm = forwardRef<HTMLDivElement, ItineraryFormProps>(
           },
         });
       } catch (e: any) {
-        console.error("Error creating itinerary:", e);
+        console.error("FRONTEND: Error creating itinerary:", e);
         onSubmissionError(e);
       }
     };
